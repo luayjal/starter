@@ -68,6 +68,13 @@
                                 </button>
                             </div>
                         </div>
+                        <div class="form-group row mb-0">
+                            <div class="col-md-6 offset-md-4 mt-2">
+                                <a href="{{url('redirect/facebook')}}" class="btn btn-primary">
+                                 Register With Facebook
+                                </a>
+                            </div>
+                        </div>
                     </form>
                 </div>
             </div>
