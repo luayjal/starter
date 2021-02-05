@@ -11,6 +11,7 @@
 |
 */
 
+
 Route::get('/', function () {
     $data=[];
     $data['id']=2;
@@ -27,7 +28,7 @@ Route::get('/test1', function () {
 //route name
 
 Route::namespace('Front')->group(function(){
-    
+
     Route::get('first','FirstController@showString');
 });
 
@@ -60,3 +61,19 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/redirect/{service}', 'socialController@redirect');
 Route::get('/callback/{service}', 'socialController@callback');
+
+
+   /*  Route::get('store','CrudController@store' ); */
+    Route::group(
+        [
+        'prefix' => LaravelLocalization::setLocale() ,
+        'middleware' => [ 'localeSessionRedirect', 'localizationRedirect', 'localeViewPath']
+        ],
+         function () {
+            Route::group(['prefix' => 'offers'], function () {
+
+                Route::get('create', 'CrudController@create');
+                Route::post('store','CrudController@store' ) -> name('offers.store');
+             });
+    });
+
