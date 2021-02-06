@@ -74,6 +74,8 @@ Route::get('/callback/{service}', 'socialController@callback');
 
                 Route::get('create', 'CrudController@create');
                 Route::post('store','CrudController@store' ) -> name('offers.store');
+                Route::get('all', 'CrudController@getAllOffers');
+
              });
     });
 

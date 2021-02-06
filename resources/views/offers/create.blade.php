@@ -86,7 +86,7 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    Add Your Offer
+                    {{__('offer.header')}}
                 </div>
                 @if(Session::has('success'))
                 <div class="container">
@@ -98,16 +98,23 @@
                         @csrf
                         {{-- <input name="_token" value="{{csrf_token()}}"> --}}
                         <div class="form-group row">
-                            <label for="inputName">Offer Name</label>
-                            <input type="text" class="form-control" name="name" placeholder="">
-                            @error('name')
+                            <label for="inputName">{{__('offer.offer name ar')}}</label>
+                            <input type="text" class="form-control" name="name_ar" placeholder="">
+                            @error('name_ar')
                             <small class="form-text text-danger">{{$message}}</small>
                             @enderror
 
                         </div>
-
                         <div class="form-group row">
-                            <label for="inputName" >Offer Price</label>
+                            <label for="inputName">{{__('offer.offer name en')}}</label>
+                            <input type="text" class="form-control" name="name_en" placeholder="">
+                            @error('name_en')
+                            <small class="form-text text-danger">{{$message}}</small>
+                            @enderror
+
+                        </div>
+                        <div class="form-group row">
+                            <label for="inputName" >{{__('offer.offer price')}}</label>
                             <input type="text" class="form-control" name="price" placeholder="">
                              @error('price')
                             <small class="form-text text-danger">{{$message}}</small>
@@ -115,15 +122,22 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="inputName">Offer Details</label>
-                            <input type="text" class="form-control" name="details"  placeholder="">
-                            @error('details')
+                            <label for="inputName">{{__('offer.offer details ar')}}</label>
+                            <input type="text" class="form-control" name="details_ar"  placeholder="">
+                            @error('details_ar')
+                            <small class="form-text text-danger">{{$message}}</small>
+                            @enderror
+                        </div>
+                        <div class="form-group row">
+                            <label for="inputName">{{__('offer.offer details en')}}</label>
+                            <input type="text" class="form-control" name="details_en"  placeholder="">
+                            @error('details_en')
                             <small class="form-text text-danger">{{$message}}</small>
                             @enderror
                         </div>
                         <div class="form-group row">
                             <div class="offset-sm-2 col-sm-10">
-                                <button type="submit" class="btn btn-primary">Save Offer</button>
+                                <button type="submit" class="btn btn-primary">{{__('offer.btn')}}</button>
                             </div>
                         </div>
                     </form>
