@@ -11,4 +11,9 @@ return[
     //Table Offer
     "offer name"=>"اسم العرض",
     "offer details"=>"تفاصيل العرض",
+    "operation"=>"العمليات",
+    "update offer"=>"تحديث",
+    "edit offer"=>"تعديل",
+    //Edit Page
+    "edit header"=>"تعديل العرض",
 ];

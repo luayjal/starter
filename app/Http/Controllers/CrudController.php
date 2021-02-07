@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\OfferRequest;
+use App\Http\Requests\updateRequest;
 use App\Models\Offer;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
@@ -76,4 +77,30 @@ class CrudController extends Controller
         return view('offers.all',compact('offers'));
     }
 
+    public function editOffer($offer_id){
+        //Offer::findOrFail($offer_id);
+        $offer = Offer::find($offer_id);
+        if (!$offer)
+            return redirect() -> back();
+        $offer = Offer::select('id','name_ar','name_en','price','details_ar','details_en') -> find($offer_id);
+        return view('offers.edit',compact('offer'));
+
+    }
+
+    public function updateOffer(updateRequest $request,$offer_id){
+        //check if offer is exisit
+        $offer = Offer::find($offer_id);
+        if (!$offer)
+             return redirect() -> back();
+
+        // update data
+        $offer -> update($request -> all());
+
+        return redirect()->back()-> with(['success' => __('messages.message success')]);
+
+       /*  $offer -> update([
+            'name_ar'=>$request->name_ar,
+            'price'=> $request->price
+        ]); */
+    }
 }

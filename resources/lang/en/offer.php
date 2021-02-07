@@ -11,5 +11,9 @@ return[
     //Table Offer
     "offer name"=>"Offer Name",
     "offer details"=>"Offer Details",
-
+    "operation"=>"Operation",
+    "update offer"=>"Update",
+    "edit offer"=>"Edit",
+    //Edit Page
+    "edit header"=>"Edit Your Offer",
 ];
