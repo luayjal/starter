@@ -7,6 +7,7 @@ return[
     "offer price"=>"سعر العرض",
     "offer details ar"=>"تفاصيل العرض بالعربي",
     "offer details en"=>"تفاصيل العرض بالانجليزي",
+    "offer img"=>"اضف صورة العرض",
     "btn"=>"حفظ",
     //Table Offer
     "offer name"=>"اسم العرض",

@@ -7,6 +7,7 @@ return[
     "offer price"=>"Offer Price",
     "offer details ar"=>"Offer Details In Arabic",
     "offer details en"=>"Offer Details In Englis",
+    "offer img"=>"Add Offer Image",
     "btn"=>"Save Offer",
     //Table Offer
     "offer name"=>"Offer Name",

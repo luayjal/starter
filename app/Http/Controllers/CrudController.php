@@ -5,12 +5,16 @@ namespace App\Http\Controllers;
 use App\Http\Requests\OfferRequest;
 use App\Http\Requests\updateRequest;
 use App\Models\Offer;
+use App\Traits\OfferTrait;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use LaravelLocalization;
 
 class CrudController extends Controller
 {
+
+   use OfferTrait;
+   
     public function getOffers(){
         return Offer::select();
     }
@@ -39,9 +43,12 @@ class CrudController extends Controller
         }
      */
 
+        //save image
+       $file_name = $this->saveImage($request->offer_img ,'images/offers');
 
         // insert
         Offer::create([
+        'offer_img'=>$file_name,
         'name_ar' => $request -> name_ar,
         'name_en' => $request -> name_en,
         'price'=>$request -> price,
@@ -52,6 +59,9 @@ class CrudController extends Controller
         return redirect()->back()->with(['success'=>'Success Add Offer']);
 
     }
+
+
+
     /* protected function getmessages(){
        return $messages = [
             'name.required' => __('messages.offer name'),
