@@ -13,8 +13,10 @@ return[
     "offer name"=>"اسم العرض",
     "offer details"=>"تفاصيل العرض",
     "operation"=>"العمليات",
+    "img_offer"=>"صورة العرض",
     "update offer"=>"تحديث",
     "edit offer"=>"تعديل",
+    "delete offer"=>"حذف",
     //Edit Page
     "edit header"=>"تعديل العرض",
 ];

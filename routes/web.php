@@ -11,6 +11,7 @@
 |
 */
 
+use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     $data=[];
@@ -81,5 +82,6 @@ Route::get('/callback/{service}', 'socialController@callback');
                 Route::get('all', 'CrudController@getAllOffers');
 
              });
+             Route::get('youtube','ViewController@gitVideo');
     });
 

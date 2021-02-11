@@ -13,8 +13,10 @@ return[
     "offer name"=>"Offer Name",
     "offer details"=>"Offer Details",
     "operation"=>"Operation",
+    "img_offer"=>"Offer Image",
     "update offer"=>"Update",
     "edit offer"=>"Edit",
+    "delete offer"=>"Delete",
     //Edit Page
     "edit header"=>"Edit Your Offer",
 ];

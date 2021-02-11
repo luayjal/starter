@@ -95,6 +95,7 @@
                     <th scope="col">{{__('offer.offer name')}}</th>
                     <th scope="col">{{__('offer.offer price')}}</th>
                     <th scope="col">{{__('offer.offer details')}}</th>
+                    <th scope="col">{{__('offer.img_offer')}}</th>
                     <th scope="col">{{__('offer.operation')}}</th>
                   </tr>
                 </thead>
@@ -105,7 +106,11 @@
                         <td>{{$offer->name}}</td>
                         <td>{{$offer->price}}</td>
                         <td>{{$offer->details}}</td>
-                        <td><a href="{{url('offers/edit/'.$offer->id)}}" class="btn btn-primary">{{__('offer.update offer')}}</a></td>
+                        <td><img style="width: 80px" src="{{asset('images/offers/'.$offer->offer_img)}}" alt=""></td>
+                        <td>
+                            <a href="{{url('offers/edit/'.$offer->id)}}" class="btn btn-primary">{{__('offer.update offer')}}</a>
+                            <a href="{{url('offers/edit/'.$offer->id)}}" class="btn btn-danger">{{__('offer.delete offer')}}</a>
+                        </td>
                       </tr>
                     @endforeach
                 </tbody>

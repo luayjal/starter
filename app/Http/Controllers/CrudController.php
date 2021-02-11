@@ -14,7 +14,7 @@ class CrudController extends Controller
 {
 
    use OfferTrait;
-   
+
     public function getOffers(){
         return Offer::select();
     }
@@ -83,7 +83,7 @@ class CrudController extends Controller
 
     public function getAllOffers(){
 
-        $offers = Offer::select('id','price','name_'.LaravelLocalization::getCurrentLocale().' as name','details_'.LaravelLocalization::getCurrentLocale().' as details')->get();
+        $offers = Offer::select('id','price','name_'.LaravelLocalization::getCurrentLocale().' as name','details_'.LaravelLocalization::getCurrentLocale().' as details', 'offer_img')->get();
         return view('offers.all',compact('offers'));
     }
 
