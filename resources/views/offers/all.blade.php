@@ -88,6 +88,17 @@
             </div>
         </nav>
         <div class="container">
+            @if (Session::has('success'))
+                <div class="alert alert-success" role="alert">
+                    <strong>{{Session::get('success')}}</strong>
+                </div>
+            @endif
+
+            @if (Session::has('error'))
+                <div class="alert alert-danger" role="alert">
+                    <strong>{{Session::get('error')}}</strong>
+                </div>
+            @endif
             <table class="table">
                 <thead>
                   <tr>
@@ -109,7 +120,7 @@
                         <td><img style="width: 80px" src="{{asset('images/offers/'.$offer->offer_img)}}" alt=""></td>
                         <td>
                             <a href="{{url('offers/edit/'.$offer->id)}}" class="btn btn-primary">{{__('offer.update offer')}}</a>
-                            <a href="{{url('offers/edit/'.$offer->id)}}" class="btn btn-danger">{{__('offer.delete offer')}}</a>
+                            <a href="{{route('offers.delete',$offer->id)}}" class="btn btn-danger">{{__('offer.delete offer')}}</a>
                         </td>
                       </tr>
                     @endforeach

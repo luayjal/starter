@@ -97,11 +97,22 @@ class CrudController extends Controller
 
     }
 
+    public function delete($offer_id){
+
+        //check is offer id exists
+        $offer = Offer::find($offer_id);
+        if (!$offer)
+           return redirect() -> back() -> with(['error' => "العرض غير موجود "]);
+           $offer->delete();
+           return redirect() -> route('offers.all') -> with(['success' => 'تم الحذف بنجاح']);
+    }
+
     public function updateOffer(updateRequest $request,$offer_id){
         //check if offer is exisit
         $offer = Offer::find($offer_id);
         if (!$offer)
              return redirect() -> back();
+
 
         // update data
         $offer -> update($request -> all());
