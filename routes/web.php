@@ -86,3 +86,10 @@ Route::get('/callback/{service}', 'socialController@callback');
              Route::get('youtube','ViewController@gitVideo');
     });
 
+/*#############  Begin Ajax routes  #################*/
+Route::group(['prefix'=>'ajaxoffer'],function () {
+    Route::get('create','OfferController@create');
+    Route::post('store','OfferController@store')->name('ajax.offers.store');
+});
+
+/*##############  End Ajax routes  ###############*/
