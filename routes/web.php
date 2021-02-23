@@ -90,6 +90,16 @@ Route::get('/callback/{service}', 'socialController@callback');
 Route::group(['prefix'=>'ajaxoffer'],function () {
     Route::get('create','OfferController@create');
     Route::post('store','OfferController@store')->name('ajax.offers.store');
+    Route::get('all', 'OfferController@showAllOffers') ->name('ajax.offers.all');
+    Route::post('delete','OfferController@delete' )->name('ajax.offers.delete');
+    Route::get('edit/{offer_id}', 'OfferController@edit')->name('ajax.offers.edit');
+    Route::post('update','OfferController@update' )->name('ajax.offers.update');
 });
 
 /*##############  End Ajax routes  ###############*/
+
+################ Start Authentication && Guards################
+Route::get('adults','Auth\CustomAuthContoller@adualt') -> middleware('checkAge');
+
+################## End Authentication && Guards################
+
