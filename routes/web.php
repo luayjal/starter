@@ -22,9 +22,9 @@ Route::get('/', function () {
 
 Route::get('index','Front\FirstController@getIndex');
 
-Route::get('/test1', function () {
-    return 'welcome';
-});
+Route::get('/dash', function () {
+    return 'Not adualt';
+}) -> name('not.adult');
 
 //route name
 
@@ -83,7 +83,7 @@ Route::get('/callback/{service}', 'socialController@callback');
                 Route::get('all', 'CrudController@getAllOffers') ->name('offers.all');
 
              });
-             Route::get('youtube','ViewController@gitVideo');
+             Route::get('youtube','ViewController@gitVideo') ->middleware('auth');
     });
 
 /*#############  Begin Ajax routes  #################*/
@@ -99,7 +99,18 @@ Route::group(['prefix'=>'ajaxoffer'],function () {
 /*##############  End Ajax routes  ###############*/
 
 ################ Start Authentication && Guards################
-Route::get('adults','Auth\CustomAuthContoller@adualt') -> middleware('checkAge');
+
+Route::group([ 'middleware' => 'checkAge','namespace' => 'Auth'],function(){
+    Route::get('adults','CustomAuthContoller@adualt') -> name('adult');
+});
+
+Route::group(['namespace' => 'Auth'],function () {
+    Route::get('site','CustomAuthContoller@site') ->middleware('auth:web') -> name('site');
+    Route::get('admin','CustomAuthContoller@admin')->middleware('auth:admin') -> name('admin');
+    Route::get('admin/login','CustomAuthContoller@adminLogin') -> name('admin.login');
+    Route::post('admin/login','CustomAuthContoller@checkAdminLogin') -> name('save.admin.login');
+});
+
 
 ################## End Authentication && Guards################
 
