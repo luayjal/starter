@@ -102,4 +102,9 @@ class OfferController extends Controller
           ]);
 
     }
+
+     public function admin()
+    {
+        return view('admin');
+    }
 }

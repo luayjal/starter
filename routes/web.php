@@ -11,7 +11,6 @@
 |
 */
 
-use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     $data=[];
@@ -114,3 +113,12 @@ Route::group(['namespace' => 'Auth'],function () {
 
 ################## End Authentication && Guards################
 
+################ Start Relations Routes ######################
+Route::get('hospital-has-many','Realtion\RelationsController@getHospitalDoctors');
+Route::get('hospitals','Realtion\RelationsController@hospitals');
+Route::get('hospitals/{hospital_id}','Realtion\RelationsController@deleteHospital')->name('hospital.delete');
+Route::get('doctors/{hospital_id}','Realtion\RelationsController@doctors')->name('hospital.doctors');
+Route::get('hospitals-has-doctors','Realtion\RelationsController@hospitalHasDoctor');
+Route::get('hospitals-has-doctors-male','Realtion\RelationsController@hospitalHasOnlyMaleDoctors');
+Route::get('hospitals-not-has-doctors','Realtion\RelationsController@hospitalNotHasDoctors');
+################ End Relations Routes ######################
